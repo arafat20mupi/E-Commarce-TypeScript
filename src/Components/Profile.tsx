@@ -8,7 +8,7 @@ interface ProfileProps {
   onDelete: (id: number) => void;
 }
 
-const Profile: React.FC<ProfileProps> = ({ profileData, onAddOrUpdate, onDelete }) => {
+const Profile: React.FC<ProfileProps> = ({ profileData, onAddOrUpdate, onDelete }): JSX.Element => {
   return (
     <div>
       <ProfileForm onAddOrUpdate={onAddOrUpdate} />

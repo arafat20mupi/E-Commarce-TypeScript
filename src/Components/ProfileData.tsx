@@ -5,12 +5,12 @@ interface ProfileFormProps {
   onAddOrUpdate: (data: ProfileData) => void;
 }
 
-const ProfileForm: React.FC<ProfileFormProps> = ({ onAddOrUpdate }) => {
+const ProfileForm: React.FC<ProfileFormProps> = ({ onAddOrUpdate }) : JSX.Element=> {
   const [formState, setFormState] = useState<ProfileData>({
     id: Date.now(),
     name: "",
     email: "",
-    phone: "",
+    phone: 0,
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,7 +21,7 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ onAddOrUpdate }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onAddOrUpdate(formState);
-    setFormState({ id: Date.now(), name: "", email: "", phone: "" });
+    setFormState({ id: Date.now(), name: "", email: "", phone: 0 });
   };
 
   return (
@@ -52,7 +52,7 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ onAddOrUpdate }) => {
       <div className="mb-3">
         <label className="block mb-1">Phone</label>
         <input
-          type="tel"
+          type="number"
           name="phone"
           value={formState.phone}
           onChange={handleChange}

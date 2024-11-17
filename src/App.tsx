@@ -5,7 +5,7 @@ export interface ProfileData {
   id: number;
   name: string;
   email: string;
-  phone: string;
+  phone: number;
 }
 
 const App: React.FC = () => {
@@ -26,6 +26,8 @@ const App: React.FC = () => {
   const handleDelete = (id: number) => {
     setProfileData((prev) => prev.filter((data) => data.id !== id));
   };
+
+
 
   return (
     <div className="p-4">
